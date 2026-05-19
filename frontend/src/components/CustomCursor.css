@@ -1,0 +1,56 @@
+.cursor-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.cursor-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hide default cursor */
+@media (pointer: fine) {
+  body, a, button, input, textarea, [role="button"] {
+    cursor: none !important;
+  }
+}
+
+.cursor-dot-simple {
+  width: 8px;
+  height: 8px;
+  background: #1b191a;
+  border-radius: 50%;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(220, 228, 220, 0.829);
+  z-index: 2;
+}
+
+.cursor-dot-simple.hover {
+  width: 12px;
+  height: 12px;
+  top: -6px;
+  left: -6px;
+  background: #eba5d7;
+  box-shadow: 0 0 15px rgba(48, 237, 143, 0.874);
+}
+
+/* Mobile fallback */
+@media (pointer: coarse) {
+  .cursor-wrapper {
+    display: none;
+  }
+  body, a, button {
+    cursor: auto !important;
+  }
+}

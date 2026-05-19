@@ -1,0 +1,164 @@
+.syllabus-page {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+
+.syllabus-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.syllabus-header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+.syllabus-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.syllabus-subtitle {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.cycle-card {
+  background: white;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border: 1px solid #f1f5f9;
+}
+
+.cycle-header {
+  padding: 1.25rem 1.75rem;
+  background: #fff;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.cycle-indicator {
+  width: 4px;
+  height: 48px;
+  border-radius: 9999px;
+}
+
+.cycle-info h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+.cycle-duration {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.item-list {
+  padding: 1rem;
+}
+
+.syllabus-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1.25rem;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid #f1f5f9;
+  transition: all 0.2s ease;
+}
+
+.syllabus-item:hover {
+  background-color: #f8fafc;
+  transform: translateX(4px);
+}
+
+.item-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.item-name {
+  font-weight: 600;
+  color: #334155;
+}
+
+.tag-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.tag-blue {
+  background-color: #eff6ff;
+  color: #3b82f6;
+  border-color: #dbeafe;
+}
+
+.status-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-completed {
+  background-color: #22c55e;
+  color: white;
+}
+
+.status-in-progress {
+  border: 2px solid #22c55e;
+}
+
+.status-not-started {
+  border: 2px solid #e2e8f0;
+}
+
+.loading-spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #22c55e;
+  border-top-color: transparent;
+  border-radius: 9999px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.back-button {
+  margin-bottom: 2rem;
+  color: #3b82f6;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}

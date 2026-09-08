@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import ApplyModal from '../components/ApplyModal';
 import './Syllabus.css';
 
@@ -78,92 +79,92 @@ const Syllabus = () => {
   return (
     <div className="syllabus-page">
       <div className="syllabus-container">
-        <motion.button 
+        <button 
           onClick={() => navigate('/')}
           className="back-button"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: -5 }}
-          style={{ cursor: 'pointer', background: 'none', border: 'none', padding: '1rem 0' }}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', cursor: 'pointer', background: 'none', border: 'none', padding: '1rem 0' }}
         >
-          ← Back to Courses
-        </motion.button>
+          <ArrowLeft size={16} /> Back to Courses
+        </button>
 
         <div className="course-hero-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center', marginBottom: '4rem' }}>
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
+            data-aos="fade-right"
           >
-            <span style={{ display: 'inline-block', padding: '0.5rem 1rem', background: 'rgba(16, 185, 129, 0.1)', color: '#10b981', borderRadius: '99px', fontSize: '0.8125rem', fontWeight: '700', marginBottom: '1.5rem' }}>💻 Professional Track</span>
-            <h1 style={{ fontSize: '3rem', fontWeight: '900', color: '#1e293b', lineHeight: '1.1', marginBottom: '1.5rem' }}>Full Stack <span style={{ color: '#10b981', fontStyle: 'italic' }}>Development</span></h1>
-            <p style={{ fontSize: '1.125rem', color: '#64748b', lineHeight: '1.6', marginBottom: '2rem' }}>Master frontend and backend development with modern technologies and real-world projects in our comprehensive 8-month internship.</p>
+            <span style={{ display: 'inline-block', padding: '0.5rem 1rem', background: 'rgba(245, 158, 11, 0.08)', color: 'var(--accent-gold)', borderRadius: '99px', fontSize: '0.8125rem', fontWeight: '700', marginBottom: '1.5rem', border: '1px solid rgba(245, 158, 11, 0.15)' }}>💻 Professional Track</span>
+            <h1 style={{ fontSize: '3rem', fontWeight: '900', color: 'var(--text-light)', lineHeight: '1.1', marginBottom: '1.5rem' }}>Full Stack <span style={{ color: 'var(--accent-gold)', fontStyle: 'italic' }}>Development</span></h1>
+            <p style={{ fontSize: '1.125rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '2rem' }}>Master frontend and backend development with modern technologies and real-world projects in our comprehensive 8-month internship.</p>
             <button onClick={() => setIsModalOpen(true)} className="btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem' }}>Start Your Application</button>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 40px -10px rgba(0,0,0,0.1)' }}
+            data-aos="fade-left"
+            style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.08)', border: '1px solid var(--glass-border)' }}
           >
             <img src={pythonImg} alt="Full Stack" style={{ width: '100%', height: 'auto', display: 'block' }} />
           </motion.div>
         </div>
 
-        <div className="roadmap-section">
-          <h2 className="roadmap-header" style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '2rem', fontWeight: '800' }}>Comprehensive <span className="gradient-text">Success Syllabus</span></h2>
+        <div className="roadmap-section-syllabus">
+          <h2 className="roadmap-header-syllabus" data-aos="fade-up" style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '2.25rem', fontWeight: '800', color: 'var(--text-light)' }}>Comprehensive <span className="gradient-text">Success Syllabus</span></h2>
 
-        <div className="space-y-12">
-          {cycles.map((cycle, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="cycle-card"
-            >
-              <div className="cycle-header">
-                <div className={`cycle-indicator ${cycle.color}`}></div>
-                <div className="cycle-info">
-                  <h3>{cycle.title}</h3>
-                  <span className="cycle-duration">{cycle.duration}</span>
+          <div className="space-y-12">
+            {cycles.map((cycle, i) => (
+              <div 
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+                className="cycle-card"
+              >
+                <div className="cycle-header">
+                  <div className={`cycle-indicator ${cycle.color}`}></div>
+                  <div className="cycle-info">
+                    <h3>{cycle.title}</h3>
+                    <span className="cycle-duration">{cycle.duration}</span>
+                  </div>
+                </div>
+
+                <div className="item-list">
+                  {cycle.items.map((item, j) => (
+                    <div key={j} className="syllabus-item">
+                      <div className="item-content">
+                        <span className="item-name">{item.name}</span>
+                        {item.tags && (
+                          <div className="tag-container">
+                            {item.tags.map(tag => (
+                              <span key={tag} className="tag tag-blue">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <StatusIcon status={item.status} />
+                    </div>
+                  ))}
                 </div>
               </div>
-
-              <div className="item-list">
-                {cycle.items.map((item, j) => (
-                  <div key={j} className="syllabus-item">
-                    <div className="item-content">
-                      <span className="item-name">{item.name}</span>
-                      {item.tags && (
-                        <div className="tag-container">
-                          {item.tags.map(tag => (
-                            <span key={tag} className="tag tag-blue">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                    <StatusIcon status={item.status} />
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
         </div>
 
         {/* CTA Banner Section */}
-        <section className="cta-banner-section" style={{ marginTop: '5rem' }}>
-          <div className="cta-banner-card" style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(52, 211, 153, 0.05) 100%)', borderRadius: '24px', border: '1px solid rgba(16, 185, 129, 0.1)', padding: '4rem 2rem' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1.5rem', color: '#1e293b' }}>Ready to Join the Internship?</h2>
-            <p style={{ fontSize: '1.125rem', color: '#64748b', marginBottom: '2.5rem', maxWidth: '30rem', margin: '0 auto 2.5rem' }}>Our limited slots fill up fast. Apply today to secure your position in our upcoming cohort.</p>
+        <section className="cta-banner-section" style={{ marginTop: '5rem' }} data-aos="zoom-in">
+          <div className="cta-banner-card" style={{ background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(217, 119, 6, 0.05) 100%)', borderRadius: '24px', border: '1px solid var(--glass-border)', padding: '4rem 2rem', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1.5rem', color: 'var(--text-light)' }}>Ready to Join the Internship?</h2>
+            <p style={{ fontSize: '1.125rem', color: 'var(--text-muted)', marginBottom: '2.5rem', maxWidth: '30rem', margin: '0 auto 2.5rem' }}>Our limited slots fill up fast. Apply today to secure your position in our upcoming cohort.</p>
             <button onClick={() => setIsModalOpen(true)} className="btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.125rem' }}>Apply Now</button>
           </div>
         </section>
       </div>
 
       <AnimatePresence>
-        <ApplyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} courseTitle="Full Stack Development" />
+        {isModalOpen && (
+          <ApplyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} courseTitle="Full Stack Development" />
+        )}
       </AnimatePresence>
     </div>
   );

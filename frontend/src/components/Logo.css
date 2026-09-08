@@ -1,0 +1,184 @@
+/* Logo.css */
+.nextgen-wordmark {
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+  position: relative;
+  font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+  user-select: none;
+}
+
+.nextgen-n-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.nextgen-n {
+  font-weight: 900;
+  background: linear-gradient(175deg, #FFE566 0%, #D4A000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Pulse dot */
+.nextgen-pulse-wrap {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.nextgen-pulse-core {
+  width: 100%;
+  height: 100%;
+  background: #FFE566;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 8px rgba(245,196,0,0.9);
+}
+
+.nextgen-pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1.8px solid #F5C400;
+  border-radius: 50%;
+  animation: nextgenPulseRingSm 2.2s ease-out infinite;
+}
+
+.nextgen-pulse-ring:nth-child(2) {
+  animation-delay: 0.75s;
+}
+
+.nextgen-pulse-ring:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+.nextgen-ext {
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.nextgen-gen {
+  font-weight: 900;
+  background: linear-gradient(175deg, #FFE566 0%, #D4A000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+/* Sizing options */
+/* Small size - For Navbar */
+.logo-sm .nextgen-n {
+  font-size: 28px;
+  margin-right: -1px;
+}
+.logo-sm .nextgen-ext,
+.logo-sm .nextgen-gen {
+  font-size: 22.5px;
+  letter-spacing: -0.75px;
+}
+.logo-sm .nextgen-pulse-wrap {
+  top: 1.5px;
+  right: -1px;
+  width: 3.5px;
+  height: 3.5px;
+}
+.logo-sm .nextgen-pulse-ring {
+  width: 3.5px;
+  height: 3.5px;
+  animation-name: nextgenPulseRingSm;
+}
+
+/* Medium size - Default */
+.logo-md .nextgen-n {
+  font-size: 40px;
+  margin-right: -1.5px;
+}
+.logo-md .nextgen-ext,
+.logo-md .nextgen-gen {
+  font-size: 32px;
+  letter-spacing: -1px;
+}
+.logo-md .nextgen-pulse-wrap {
+  top: 2.2px;
+  right: -1.5px;
+  width: 5px;
+  height: 5px;
+}
+.logo-md .nextgen-pulse-ring {
+  width: 5px;
+  height: 5px;
+  animation-name: nextgenPulseRingMd;
+}
+
+/* Large size - For Footer/Showcase */
+.logo-lg .nextgen-n {
+  font-size: 56px;
+  margin-right: -2px;
+}
+.logo-lg .nextgen-ext,
+.logo-lg .nextgen-gen {
+  font-size: 45px;
+  letter-spacing: -1.5px;
+}
+.logo-lg .nextgen-pulse-wrap {
+  top: 3px;
+  right: -2px;
+  width: 7px;
+  height: 7px;
+}
+.logo-lg .nextgen-pulse-ring {
+  width: 7px;
+  height: 7px;
+  animation-name: nextgenPulseRingLg;
+}
+
+/* Keyframe animations for scaling */
+@keyframes nextgenPulseRingSm {
+  0%   { width: 3.5px; height: 3.5px; opacity: 0.85; }
+  100% { width: 16px; height: 16px; opacity: 0; }
+}
+
+@keyframes nextgenPulseRingMd {
+  0%   { width: 5px; height: 5px; opacity: 0.85; }
+  100% { width: 22px; height: 22px; opacity: 0; }
+}
+
+@keyframes nextgenPulseRingLg {
+  0%   { width: 7px; height: 7px; opacity: 0.85; }
+  100% { width: 32px; height: 32px; opacity: 0; }
+}
+
+@media (max-width: 480px) {
+  .logo-sm .nextgen-n {
+    font-size: 24px;
+  }
+  .logo-sm .nextgen-ext,
+  .logo-sm .nextgen-gen {
+    font-size: 19px;
+  }
+  .logo-lg .nextgen-n {
+    font-size: 40px;
+  }
+  .logo-lg .nextgen-ext,
+  .logo-lg .nextgen-gen {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo-sm .nextgen-n {
+    font-size: 22px;
+  }
+  .logo-sm .nextgen-ext,
+  .logo-sm .nextgen-gen {
+    font-size: 17px;
+  }
+}

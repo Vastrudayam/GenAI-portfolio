@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './CustomCursor.css';
 
 const CustomCursor = () => {
@@ -25,7 +25,10 @@ const CustomCursor = () => {
       const pvy = (vy * 0.1) + (Math.random() - 0.5) * 1.5 - 0.5; // Slight upward bias
       
       // Use colors based on hover state (matching user's CSS theme)
-      const color = isHovered ? '25, 164, 94' : '87, 65, 3'; // Green if hovered, Dark Gold/Brown otherwise
+      const isDark = document.body.classList.contains('dark-theme');
+      const color = isDark 
+        ? (isHovered ? '251, 230, 137' : '230, 192, 64') 
+        : (isHovered ? '245, 158, 11' : '217, 119, 6');
       
       return {
         x,

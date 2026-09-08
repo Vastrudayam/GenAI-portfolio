@@ -19,7 +19,7 @@ export const blogs = [
       <h3>3. Multimodal Excellence</h3>
       <p>AI now understands the world much like we do—through sight, sound, and text simultaneously. This has opened new doors in accessibility and creative industries.</p>
       
-      <p>Staying ahead in this landscape requires constant learning. At Zorvixe, our GenAI track is designed to keep you at the bleeding edge of these developments.</p>
+      <p>Staying ahead in this landscape requires constant learning. At NextGen, our GenAI track is designed to keep you at the bleeding edge of these developments.</p>
     `
   },
   {
